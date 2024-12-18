@@ -5,7 +5,7 @@ export type { PluginListenerHandle };
 export interface NFCRecord {
   recordType: string;
   mediaType?: string;
-  data: number[];
+  data: DataView;
 }
 
 export interface NFCMessage {
