@@ -17,6 +17,9 @@
   ],
   "author": "Trent Rand <contact@trentrand.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trentrand/capacitor-nfc.git"
