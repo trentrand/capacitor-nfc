@@ -1,6 +1,6 @@
 {
   "name": "@trentrand/capacitor-nfc",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Capacitor plugin to scan NFC tags",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",

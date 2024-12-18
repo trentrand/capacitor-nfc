@@ -1,5 +1,4 @@
 import { registerPlugin } from '@capacitor/core';
-
 import type { NfcPlugin } from './definitions';
 
 const Nfc = registerPlugin<NfcPlugin>('Nfc', {

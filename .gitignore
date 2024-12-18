@@ -1,6 +1,8 @@
 # node files
 dist
 node_modules
+package-lock.json
+
 
 # iOS files
 Pods
@@ -16,11 +18,8 @@ DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
 
-
 # macOS files
 .DS_Store
-
-
 
 # Based on Android gitignore template: https://github.com/github/gitignore/blob/HEAD/Android.gitignore
 
