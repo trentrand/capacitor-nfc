@@ -133,10 +133,22 @@ extension NfcPlugin: NFCNDEFReaderSessionDelegate {
     public func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
         for message in messages {
             let records = message.records.map { record -> [String: Any] in
+                var dataArray = Array(record.payload)
+                if record.typeNameFormat == .nfcWellKnown,
+                   let typeString = String(data: record.type, encoding: .utf8) {
+                    switch typeString {
+                    case "U": // Well-known URI record
+                        dataArray = Array(dataArray.dropFirst(1)) // drop URI prefix byte
+                    case "T": // Well-known text record
+                        dataArray = Array(dataArray.dropFirst(3)) // drop language code bytes
+                    default:
+                        break
+                    }
+                }
                 return [
                     "recordType": String(data: record.type, encoding: .utf8) ?? "",
                     "mediaType": record.typeNameFormat.rawValue,
-                    "data": Array(record.payload)
+                    "data": dataArray
                 ]
             }
 
