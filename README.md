@@ -9,6 +9,34 @@ npm install @trentrand/capacitor-nfc
 npx cap sync
 ```
 
+### Xcode project prerequisites
+
+### iOS Configuration
+
+Attempting to use this plugin on iOS without proper configuration in Xcode will result in an immediate app crash when `NFCNDEFReaderSession.begin()` is called. To prevent this:
+
+1. Enable NFC capabilities in Xcode and configure entitlements
+   - In Xcode, click on your project in the navigator
+   - Select your target
+   - Click "Signing & Capabilities"
+   - Click "+ Capability"
+   - Add "Near Field Communication Tag Reading"
+   - Verify the entitlements file now contains:
+     ```xml
+     <key>com.apple.developer.nfc.readersession.formats</key>
+     <array>
+         <string>TAG</string>
+     </array>
+     ```
+
+2. Add NFC usage description to Info.plist
+```xml
+<key>NFCReaderUsageDescription</key>
+<string>Describe why your app needs NFC access</string>
+```
+
+3. Ensure your Apple Developer account has NFC capabilities enabled in the Apple Developer portal. This requires a paid membership.
+
 ## API
 
 <docgen-index>
